@@ -1,0 +1,107 @@
+<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+
+<div class="row">
+    <div class="col-lg-6">
+        <form name="hotel" method="post" enctype="multipart/form-data">
+            <div class="box-body">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="hotel_title" name="hotel[title]" class="form-control"
+                        value="{{ hotel.title }}">
+                </div>
+                <div class="form-group">
+                    <label>Keywords</label>
+                    <textarea id="hotel_keywords" name="hotel[keywords]">
+						{{hotel.keywords}}
+					</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Descriptions</label>
+                    <input type="text" id="hotel_description" name="hotel[description]" class="form-control"
+                        value="{{hotel.description}}">
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    
+					<label for="hotel_image">Hotel Main Image</label>
+					<input type="file" class="form-control" id="hotel_image" name="hotel[image]"/>
+                </div>
+                <div class="form-group">
+                    <label>Star</label>
+                    <input type="number" id="hotel_star" name="hotel[star]" class="form-control" value="{{hotel.star}}">
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" id="hotel_address" name="hotel[address]" class="form-control"
+                        value="{{hotel.address}}">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" id="hotel_phone" name="hotel[phone]" class="form-control"
+                        value="{{hotel.phone}}">
+                </div>
+                <div class="form-group">
+                    <label>Fax</label>
+                    <input type="text" id="hotel_fax" name="hotel[fax]" class="form-control" value="{{hotel.fax}}">
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="text" id="hotel_email" name="hotel[email]" class="form-control"
+                        value="{{hotel.email}}">
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" id="hotel_city" name="hotel[city]" class="form-control" value="{{hotel.city}}">
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" id="hotel_counrty" name="hotel[country]" class="form-control"
+                        value="{{hotel.country}}">
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="hotel_location" name="hotel[location]" class="form-control"
+                        value="{{hotel.location}}">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <input type="text" id="hotel_status" name="hotel[status]" class="form-control"
+                        value="{{hotel.status}}">
+                </div>
+                <div class="form-group">
+                    <label for="hotel_created_at">Created at</label>
+                    <input type="datetime-local" id="hotel_created_at" name="hotel[created_at]" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="hotel_updated_at">Updated at</label>
+                    <input type="datetime-local" id="hotel_updated_at" name="hotel[updated_at]" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="hotel_category">Category</label>
+                    <select id="hotel_category" name="hotel[category]" class="form-control">
+                    {% if (hotel.category != NULL) %}
+                        <option value="{{hotel.category.id}}">{{hotel.category}}</option>
+                    {% endif %}
+                        {% for cat in categories %}
+                            <option value="{{cat.id}}">{{cat.title}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+
+
+            </div><!-- /.box-body -->
+
+
+        </form>
+    </div>
+</div>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#hotel_keywords' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

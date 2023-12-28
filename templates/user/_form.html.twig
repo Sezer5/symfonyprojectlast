@@ -1,0 +1,14 @@
+<form name="user" method="post">
+    <div id="user">
+        <div><label for="user_email" class="required">Email</label><input type="text" id="user_email" name="user[email]"
+                required="required" maxlength="180" value="{{app.user.email}}"></div>
+        <div><label for="user_plainPassword" class="required">Plain password</label><input type="password"
+                id="user_plainPassword" name="user[plainPassword]" required="required" autocomplete="new-password">
+        </div>
+        <div><label for="user_name">Name</label><input type="text" id="user_name" name="user[name]" maxlength="255"
+                value="{{app.user.name}}"></div>
+        <div><label for="user_surname">Surname</label><input type="text" id="user_surname" name="user[surname]"
+                maxlength="255" value="{{app.user.surname}}"></div>
+    </div>
+    <button class="btn">Update</button>
+</form>

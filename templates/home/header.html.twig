@@ -1,0 +1,65 @@
+<div id="wrapper">
+  <header>
+    <!-- Navbar ================================================== -->
+    <div class="navbar navbar-static-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- logo -->
+          <div class="logo">
+            <a href="index.html"><img src="{{ asset('assets') }}/user/assets/img/logo.png" alt="" /></a>
+          </div>
+          <!-- end logo -->
+
+          <!-- top menu -->
+          <div class="navigation">
+            <nav>
+              <ul class="nav topnav">
+                <li class="active">
+                  <a href="{{ path('app_home')}}"><i class="icon-home"></i> Home </a>
+                </li>
+                <li class="dropdown">
+                  <a href="#"><i class="icon-cog"></i> Features <i class="icon-angle-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="color-scheme.html">10 Theme colors</a></li>
+                    <li><a href="buttons.html">Buttons</a></li>
+                    <li><a href="components.html">Components</a></li>
+                    <li><a href="animations.html">56 Animations</a></li>
+                    <li><a href="icons.html">Icons</a></li>
+                    <li><a href="icon-variations.html">Icon variations</a></li>
+                    <li class="dropdown"><a href="#">3rd level <i class="icon-angle-right"></i></a>
+                      <ul class="dropdown-menu sub-menu">
+                        <li><a href="#">Example menu</a></li>
+                        <li><a href="#">Example menu</a></li>
+                        <li><a href="#">Example menu</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="contact.html"><i class="icon-envelope-alt"></i> Contact</a>
+                </li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li class="dropdown">
+                  <a href="#">{{ app.user.name }} {{ app.user.surname }} <i class="icon-angle-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="portfolio-3cols.html">Orders</a></li>
+                    <li><a href="{{ path('app_user_index')}}">Profile</a></li>
+                    <li><a href="{{ path('app_logout')}}">Logout</a></li>
+                  </ul>
+                </li>
+                {% else %}
+                <li>
+                  <a href="{{ path('login_user')}}"><i class="icon-lock"></i> Login</a>
+                </li>
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
+          <!-- end menu -->
+
+        </div>
+      </div>
+    </div>
+  </header>

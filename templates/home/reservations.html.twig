@@ -1,0 +1,61 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{ app.user.name }} {{ app.user.surname }}{% endblock %}
+
+{% block body %}
+<section id="subintro">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <ul class="breadcrumb">
+                    <li><a href="#"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
+                    <li><a href="#">Blog</a><i class="icon-angle-right"></i></li>
+                    <li class="active">Blog with left sidebar</li>
+                </ul>
+            </div>
+            <div class="span4">
+                <div class="search">
+                    <form class="input-append">
+                        <input class="search-form" id="appendedPrependedInput" type="text"
+                            placeholder="Search here.." />
+                        <button class="btn btn-dark" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        {% block usermenu %}
+        {% include('user/usermenu.html.twig') %}
+        {% endblock %}
+
+
+        <div class="span8">
+            <!-- start article 1 -->
+            <article class="blog-post">
+                <div class="post-heading">
+                    <h3><a href="#">Reservations</a></h3>
+                </div>
+                <div class="row">
+                    <div class="span8">
+
+
+                        <div class="clearfix">
+                        </div>
+                       Reservations
+
+                    </div>
+                </div>
+            </article>
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
+{% endblock %}
